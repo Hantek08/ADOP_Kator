@@ -1,40 +1,74 @@
 Kata2
 
 Du nu enkapsulera en lista av Medlemmar i ett Hotell lojalitets program. 
-Du ska ocks� implementera relevanta Interfaces och IEquatable<Member> and IComparable <Member>.
+Du ska också implementera relevanta Interfaces och IEquatable<Member> and IComparable <Member>.
 
-Uppgifter:
-
-
-�VNING DEL 1
+Som ÖVNING:
+----------
+ÖVNING DEL 1
 1. Implementera IMember i en klass Member
-	- Implementera IComparable s� att medlemmar sorteras efter bonusniv�, efternamn, f�rnamn, medlemsdatum
+	- Implementera IComparable så att medlemmar sorteras efter bonusnivå, efternamn, förnamn, medlemsdatum
 	- Implementera RandomInit()
-	- Implementera en constructor som skapar en instans av Member initierad med slumpm�ssiga v�rden
-	- Override ToString() f�r att skriva ut medlemsdata
+	- Implementera en Class Factory med en metod, CreateWithRandomData() som skapar och returnerar en instans av Member initierad med slumpmässiga värden
+	- Override ToString() för att skriva ut medlemsdata
 	- Implementera IEquatable<>
-		- Kom ih�g legacy: override bool Equals(object obj) => Equals(obj as IMember);
+		- Kom ihåg legacy: override bool Equals(object obj) => Equals(obj as IMember);
 		- override int GetHashCode() =>
 
-2. Skriv n�gra kodrader i Program.Main() som testar att skapa instanser av Member.
-	- Anv�nda IMember som typ s� l�nge det g�r.
+2. Skriv några kodrader i Program.Main() som testar att skapa instanser av Member.
+	- Använda IMember som typ så länge det går.
 
 
-�VNING DEL 2
+ÖVNING DEL 2
 3. Implementera IMemberList i en class, MemberList
-	- F�rutom n�r du skapar en instans av Member, anv�nd typen IMember
-	- En constructor(int NrOfMembers), som skapar en lista med NrOfMembers slumpm�ssigt initierade Members
-	- Override ToString() f�r att skriva ut kluster om 10 medlemmar 
+	- Förutom när du skapar en instans av Member, använd typen IMember
+	- Implementera en Class Factory med en metod, CreateWithRandomData(int NrOfMembers) som skapar och returnerar en instans av MemberList
+		initierad med NrOfMembers slumpmässigt initierade Members
+	- Override ToString() för att skriva ut kluster om 10 medlemmar 
 
-4. Skriv n�gra kodrader i Program.Main() som skapar en sorterad medlemslista f�r Hilton med 20 medlemmar
-   och en f�r Radisson med 20 medlemmar
+4. Skriv några kodrader i Program.Main() som skapar en sorterad medlemslista för Hilton med 20 medlemmar
+   och en för Radisson med 20 medlemmar
 
-5. L�gg till en class indexer property s� att man kan l�sa en enskild medlem i listan 
+5. Lägg till en class indexer property så att man kan läsa en enskild medlem i listan 
 
 Lycka till!
+PSST! Ideer för att göra en RandomInit() finns i program
 
 
+Som KATA:
+---------
+1. Deklarera ett Interface IMember som definierar
+	- Medlemmens för- och efternamn (property get; set;)
+	- Medlemmens bonus nivå som en enum typ, MemberLevel: Blue, Silver, Gold and Platinum (property get; set;)
+	- Datum då medlemskapet startades (property get; set;)
+	- Metod, RandomInit(), som fyller i alla properties med slumpmässiga värden
+	- Tänk på att deklarera enum typen MemberLevel i samma fil som IMember då de hör tillsammans
 
-PSST! Ideer f�r att g�ra en RandomInit() finns i program
+2. Skriv definitionen av IMember så att IMember också måste implementera IEquitable<> och IComparable<>
+3. Implementera IMember i en klass Member
+	- Implementera IComparable så att medlemmar sorteras efter bonusnivå, efternamn, förnamn, medlemsdatum
+	- Implementera RandomInit()
+	- Implementera en constructor som skapar en instans initierad med slumpmässiga värden
+	- Override ToString() för att skriva ut medlemsdata
+	- Implementera IEquitable<>
+		- Kom ihåg legacy: override bool Equals(object obj) => Equals(obj as IMember);
+		- override int GetHashCode() =>
 
- 
+4. Skriv några kodrader i Program.Main() som testar att skapa instanser av Member.
+	- Använda IMember som typ så länge det går.
+
+5. Deklarara ett Interface IMemberList som definierar
+	- Metod, Count, som returnerar totala antalet medlemmar
+	- Metod, Count(int year), som returnerar totala antalet medlemmar skapade under året "year"
+	- Metod, Sort
+
+6. Implementera IMemberList i en class, MemberList
+	- Förutom när du skapar en instans av Member, använd typen IMember
+	- En constructor(int NrOfMembers), som skapar en lista med NrOfMembers slumpmässigt initierade Members
+	- Override ToString() för att skriva ut kluster om 10 medlemmar 
+
+7. Skriv några kodrader i Program.Main() som skapar en sorterad medlemslista för Hilton med 20 medlemmar
+   och en för Radisson med 20 medlemmar
+
+Träna, Träna, Träna. Ovan moment 1-7 ska jobbas in i långtidsminne och muskelminne
+Lycka till!
